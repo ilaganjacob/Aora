@@ -5,7 +5,7 @@ const TabsLayout = () => {
   return (
     <>
       <Tabs>
-        <Tabs.Screen name="home" />
+        <Tabs.Screen name="home"></Tabs.Screen>
       </Tabs>
     </>
   );
