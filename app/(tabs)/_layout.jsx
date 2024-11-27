@@ -4,16 +4,17 @@ import { Image, View, Text } from "react-native";
 
 const TabIcon = ({ icon, color, name, focused }) => {
   return (
-    <View className="flex items-center justify-center gap-2">
+    <View className="flex items-center justify-center gap-2 min-w-[60px]">
       <Image
         source={icon}
         resizeMode="contain"
         tintColor={color}
-        className="w-6 h-6"
+        className="w-6 h-6 mt-3"
       />
       <Text
-        className={`{${focused ? "font-psemibold" : "font-pregular"} text-xs`}
+        className={`${focused ? "font-psemibold" : "font-pregular"} text-xs text-center`}
         style={{ color: color }}
+        numberOfLines={1}
       >
         {name}
       </Text>
@@ -26,18 +27,18 @@ const TabsLayout = () => {
     <>
       <Tabs
         screenOptions={{
-          tabBarShowLabel: false,
           tabBarActiveTintColor: "#FFA001",
-          tabBarInactiveColor: "CDCDE0",
+          tabBarInactiveTintColor: "#CDCDE0",
+          tabBarShowLabel: false,
           tabBarStyle: {
             backgroundColor: "#161622",
-            borderTopWidth: 1,
+            borderTopWidth: 2,
             borderTopColor: "#232533",
             height: 84,
           },
         }}
       >
-        <Tabs.Screen
+         <Tabs.Screen
           name="home"
           options={{
             title: "Home",
@@ -48,10 +49,10 @@ const TabsLayout = () => {
                 color={color}
                 name="Home"
                 focused={focused}
-              ></TabIcon>
+              />
             ),
           }}
-        ></Tabs.Screen>
+        />
         <Tabs.Screen
           name="bookmark"
           options={{
@@ -63,10 +64,10 @@ const TabsLayout = () => {
                 color={color}
                 name="Bookmark"
                 focused={focused}
-              ></TabIcon>
+              />
             ),
           }}
-        ></Tabs.Screen>
+        />
 
         <Tabs.Screen
           name="create"
@@ -79,11 +80,10 @@ const TabsLayout = () => {
                 color={color}
                 name="Create"
                 focused={focused}
-              ></TabIcon>
+              />
             ),
           }}
-        ></Tabs.Screen>
-
+        />
         <Tabs.Screen
           name="profile"
           options={{
@@ -95,10 +95,10 @@ const TabsLayout = () => {
                 color={color}
                 name="Profile"
                 focused={focused}
-              ></TabIcon>
+              />
             ),
           }}
-        ></Tabs.Screen>
+        />
       </Tabs>
     </>
   );
